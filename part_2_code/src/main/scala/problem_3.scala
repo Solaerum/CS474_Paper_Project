@@ -26,9 +26,9 @@ object problem_3{
         //Adds size DFA
         Nfa.determinize()
         outString ++= "The resultant DFA has size: " + Nfa.getNumberOfStates() + "\n"
-        //Adds size min DFA
+        //Adds size min DFA on hopcraft algorythm
         Nfa.minimize()
-        outString ++= "The resultant Minimizeded DFA has size: " + Nfa.getNumberOfStates() + "\n"
+        outString ++= "The resultant Minimized DFA has size: " + Nfa.getNumberOfStates() + "\n"
 
         //Returns the string
         outString.toString

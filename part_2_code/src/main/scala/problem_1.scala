@@ -62,9 +62,15 @@ object Problem_1 extends App{
   println(Regex_to_NFA_to_DFA("(((aS?))|(O((aS?))C((U|:)(((aS?))|O((aS?)+)C))*)|(((aS?))((U|:)(((aS?))|O((aS?))C))*))+"))
 */
   //k = 1
-  println(problem_3.Compare("e|OeC|(eU(((aS?)+)|(O((aS?)+)C((U|:)(((aS?)+)|O((aS?)+)C))*)|(((aS?)+)((U|:)(((aS?)+)|O((aS?)+)C))*)))|(OeCU(((aS?)+)|(O((aS?)+)C((U|:)(((aS?)+)|O((aS?)+)C))*)|(((aS?)+)((U|:)(((aS?)+)|O((aS?)+)C))*)))|(((aS?)+)|(O((aS?)+)C((U|:)(((aS?)+)|O((aS?)+)C))*)|(((aS?)+)((U|:)(((aS?)+)|O((aS?)+)C))*))"))
   println(problem_3.Compare("(aS?)|(O((aS?))C((U|:)(((aS?))|O((aS?))C))*)|(((aS?))((U|:)(((aS?))|O((aS?))C))*)"))
-  println(problem_3.Compare("(aS?)|(O((aS?))C((U|:)(((aS?))|O((aS?))C)| OO(aS?)CC )*)|((aS?)((U|:)(((aS?))|O((aS?))C)| OO(aS?)CC )*)|(OO(aS?)CC((U|:)((aS?)|O(aS?)C)|OO(aS?)CC )*)"))
+  //k = 2
+  println(problem_3.Compare("(aS?)|(O((aS?))C((U|:)(((aS?))|O((aS?))C)| OO(aS?)CC )*)|((aS?)((U|:)(((aS?))|O((aS?))C)| OO(aS?)CC )*)|(OO(aS?)CC((U|:)((aS?)|O(aS?)C)|OO(aS?)CC)*)"))
+  //k = 3
+  println(problem_3.Compare("(aS?)|(O((aS?))C((U|:)(((aS?))|O((aS?))C)|OO(aS?)CC|OOO(aS?)CCC )*)|((aS?)((U|:)(((aS?))|O((aS?))C)|OO(aS?)CC|OOO(aS?)CCC)*)|(OO(aS?)CC((U|:)((aS?)|O(aS?)C)|OO(aS?)CC|OOO(aS?)CCC)*)|(OOO(aS?)CCC((U|:)((aS?)|O(aS?)C)|OO(aS?)CC|OOO(aS?)CCC)*)"))
+  //k = 4
+  println(problem_3.Compare("(aS?)|(O((aS?))C((U|:)(((aS?))|O((aS?))C)|OO(aS?)CC|OOO(aS?)CCC|OOOO(aS?)CCCC )*)|((aS?)((U|:)(((aS?))|O((aS?))C)|OO(aS?)CC|OOO(aS?)CCC|OOOO(aS?)CCCC )*)|(OO(aS?)CC((U|:)((aS?)|O(aS?)C)|OO(aS?)CC|OOO(aS?)CCC|OOOO(aS?)CCCC)*)|(OOO(aS?)CCC((U|:)((aS?)|O(aS?)C)|OO(aS?)CC|OOO(aS?)CCC|OOOO(aS?)CCCC)*)|(OOOO(aS?)CCCC((U|:)((aS?)|O(aS?)C)|OO(aS?)CC|OOO(aS?)CCC|OOOO(aS?)CCCC)*)"))
+  //k = 5
+  println(problem_3.Compare("(aS?)|(O((aS?))C((U|:)(((aS?))|O((aS?))C)|OO(aS?)CC|OOO(aS?)CCC|OOOO(aS?)CCCC|OOOOO(aS?)CCCCC)*)|((aS?)((U|:)(((aS?))|O((aS?))C)|OO(aS?)CC|OOO(aS?)CCC|OOOO(aS?)CCCC|OOOOO(aS?)CCCCC)*)|(OO(aS?)CC((U|:)((aS?)|O(aS?)C)|OO(aS?)CC|OOO(aS?)CCC|OOOO(aS?)CCCC|OOOOO(aS?)CCCCC)*)|(OOO(aS?)CCC((U|:)((aS?)|O(aS?)C)|OO(aS?)CC|OOO(aS?)CCC|OOOO(aS?)CCCC|OOOOO(aS?)CCCCC)*)|(OOOO(aS?)CCCC((U|:)((aS?)|O(aS?)C)|OO(aS?)CC|OOO(aS?)CCC|OOOO(aS?)CCCC|OOOOO(aS?)CCCCC)*)|(OOOO(aS?)CCCC((U|:)((aS?)|O(aS?)C)|OO(aS?)CC|OOO(aS?)CCC|OOOO(aS?)CCCC|OOOOO(aS?)CCCCC)*)"))
 
   //k = 2
   //k = 3
@@ -119,7 +125,15 @@ one level (without e)
 (aS?)|(O((aS?))C((U|:)(((aS?))|O((aS?))C))*)|(((aS?))((U|:)(((aS?))|O((aS?))C))*)
 two level(withoute)     (aS)       U:      (a) or a *               (aS)       U:      (a) or a *             (O(aS?)C( (U|:)( (aS?)|O(aS?)C) | )* )        
 (aS?)   |   (O((aS?))C((U|:)(((aS?))|O((aS?))C)| OO(aS?)CC )*)   |   ((aS?)((U|:)(((aS?))|O((aS?))C)| OO(aS?)CC )*)    |  (OO(aS?)CC( (U|:)( (aS?)|O(aS?)C) | OO(aS?)CC )* )
-(aS?)|(O((aS?))C((U|:)(((aS?))|O((aS?))C)| OO(aS?)CC )*)|((aS?)((U|:)(((aS?))|O((aS?))C)| OO(aS?)CC )*)|(OO(aS?)CC((U|:)((aS?)|O(aS?)C)|OO(aS?)CC )*)
-
+(aS?)|(O((aS?))C((U|:)(((aS?))|O((aS?))C)| OO(aS?)CC )*)|((aS?)((U|:)(((aS?))|O((aS?))C)| OO(aS?)CC )*)|(OO(aS?)CC((U|:)((aS?)|O(aS?)C)|OO(aS?)CC)*)
+three level(without e)
+(aS?)   |   (O((aS?))C((U|:)(((aS?))|O((aS?))C)| OO(aS?)CC | OOO(aS?)CCC )*)   |   ((aS?)((U|:)(((aS?))|O((aS?))C)| OO(aS?)CC | OOO(aS?)CCC )*)    |  (OO(aS?)CC( (U|:)( (aS?)|O(aS?)C) | OO(aS?)CC | OOO(aS?)CCC )* ) | (OOO(aS?)CCC( (U|:)( (aS?)|O(aS?)C) | OO(aS?)CC | OOO(aS?)CCC )* )
+(aS?)|(O((aS?))C((U|:)(((aS?))|O((aS?))C)|OO(aS?)CC|OOO(aS?)CCC )*)|((aS?)((U|:)(((aS?))|O((aS?))C)|OO(aS?)CC|OOO(aS?)CCC)*)|(OO(aS?)CC((U|:)((aS?)|O(aS?)C)|OO(aS?)CC|OOO(aS?)CCC)*)|(OOO(aS?)CCC((U|:)((aS?)|O(aS?)C)|OO(aS?)CC|OOO(aS?)CCC)*)
+four level(without e)
+(aS?)   |   (O((aS?))C((U|:)(((aS?))|O((aS?))C)| OO(aS?)CC | OOO(aS?)CCC | OOOO(aS?)CCCC )*)   |   ((aS?)((U|:)(((aS?))|O((aS?))C)| OO(aS?)CC | OOO(aS?)CCC | OOOO(aS?)CCCC )*)    |  (OO(aS?)CC( (U|:)( (aS?)|O(aS?)C) | OO(aS?)CC | OOO(aS?)CCC | OOOO(aS?)CCCC )* ) | (OOO(aS?)CCC( (U|:)( (aS?)|O(aS?)C) | OO(aS?)CC | OOO(aS?)CCC | OOOO(aS?)CCCC )* ) | (OOOO(aS?)CCCC( (U|:)( (aS?)|O(aS?)C) | OO(aS?)CC | OOO(aS?)CCC | OOOO(aS?)CCCC)* )
+(aS?)|(O((aS?))C((U|:)(((aS?))|O((aS?))C)|OO(aS?)CC|OOO(aS?)CCC|OOOO(aS?)CCCC )*)|((aS?)((U|:)(((aS?))|O((aS?))C)|OO(aS?)CC|OOO(aS?)CCC|OOOO(aS?)CCCC )*)|(OO(aS?)CC((U|:)((aS?)|O(aS?)C)|OO(aS?)CC|OOO(aS?)CCC|OOOO(aS?)CCCC)*)|(OOO(aS?)CCC((U|:)((aS?)|O(aS?)C)|OO(aS?)CC|OOO(aS?)CCC|OOOO(aS?)CCCC)*)|(OOOO(aS?)CCCC((U|:)((aS?)|O(aS?)C)|OO(aS?)CC|OOO(aS?)CCC|OOOO(aS?)CCCC)*)
+five levels (without e)
+(aS?)   |   (O((aS?))C((U|:)(((aS?))|O((aS?))C)| OO(aS?)CC | OOO(aS?)CCC | OOOO(aS?)CCCC | OOOOO(aS?)CCCCC)*)   |   ((aS?)((U|:)(((aS?))|O((aS?))C)| OO(aS?)CC | OOO(aS?)CCC | OOOO(aS?)CCCC | OOOOO(aS?)CCCCC )*)    |  (OO(aS?)CC( (U|:)( (aS?)|O(aS?)C) | OO(aS?)CC | OOO(aS?)CCC | OOOO(aS?)CCCC | OOOOO(aS?)CCCCC )* ) | (OOO(aS?)CCC( (U|:)( (aS?)|O(aS?)C) | OO(aS?)CC | OOO(aS?)CCC | OOOO(aS?)CCCC | OOOOO(aS?)CCCCC)* ) | (OOOO(aS?)CCCC( (U|:)( (aS?)|O(aS?)C) | OO(aS?)CC | OOO(aS?)CCC | OOOO(aS?)CCCC | OOOOO(aS?)CCCCC)* ) | (OOOO(aS?)CCCC( (U|:)( (aS?)|O(aS?)C) | OO(aS?)CC | OOO(aS?)CCC | OOOO(aS?)CCCC | OOOOO(aS?)CCCCC)* )
+(aS?)|(O((aS?))C((U|:)(((aS?))|O((aS?))C)|OO(aS?)CC|OOO(aS?)CCC|OOOO(aS?)CCCC|OOOOO(aS?)CCCCC)*)|((aS?)((U|:)(((aS?))|O((aS?))C)|OO(aS?)CC|OOO(aS?)CCC|OOOO(aS?)CCCC|OOOOO(aS?)CCCCC)*)|(OO(aS?)CC((U|:)((aS?)|O(aS?)C)|OO(aS?)CC|OOO(aS?)CCC|OOOO(aS?)CCCC|OOOOO(aS?)CCCCC)*)|(OOO(aS?)CCC((U|:)((aS?)|O(aS?)C)|OO(aS?)CC|OOO(aS?)CCC|OOOO(aS?)CCCC|OOOOO(aS?)CCCCC)*)|(OOOO(aS?)CCCC((U|:)((aS?)|O(aS?)C)|OO(aS?)CC|OOO(aS?)CCC|OOOO(aS?)CCCC|OOOOO(aS?)CCCCC)*)|(OOOO(aS?)CCCC((U|:)((aS?)|O(aS?)C)|OO(aS?)CC|OOO(aS?)CCC|OOOO(aS?)CCCC|OOOOO(aS?)CCCCC)*)
 
 */
