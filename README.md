@@ -8,3 +8,7 @@
 #### b. Modify your regex solution such that, given a positive integer k, allows for regexes with nesting levels at most k deep.
 
 #### c. Using your implementation/chosen library, create a table that compares k vs. the sizes of the regexes produced vs. the size of the NFA vs. the size of the DFA vs. the size of the minimum DFA.
+
+# Visualization Tools 
+
+See [DebuggexBeta](https://www.debuggex.com/) for a visual regex debugger
