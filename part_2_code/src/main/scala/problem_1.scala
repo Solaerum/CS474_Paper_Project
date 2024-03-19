@@ -1,4 +1,5 @@
 package Theory_Part_2
+
 /**
   * dk.brics.automaton library built for java. See the package link for more details https://www.brics.dk/automaton/doc/dk/brics/automaton/package-summary.html
   */
@@ -20,14 +21,14 @@ object Problem_1 extends App{
     * Has optional minimal form (remove comments on line DONT FORGET TO FILL THIS IN WITH THE LINE #!)
     * 
     */
-  def Regex_to_NFA_to_DFA(regexIn: String): Automaton = {
+  def Regex_to_NFA_to_DFA(regexIn: String) = {
 
 // Instantiate Regex, built in method to translate strings to 
     val startingExpression = new dk.brics.automaton.RegExp(regexIn)
 
 // Translate Regex to NFA
     val Nfa = startingExpression.toAutomaton(false)
-    val determinism_check = Nfa.isDeterministic()
+    var determinism_check = Nfa.isDeterministic()
     
     var dfa_states = Nfa.getNumberOfStates()
     
@@ -35,18 +36,20 @@ object Problem_1 extends App{
     println("Is this this NFA already deterministic?" + determinism_check.toString())
 
 // Translate NFA to DFA
-    val Dfa: Automaton = determinize(Nfa)
+    Nfa.determinize()
+    //Nfa.determinize(false)
+    val Dfa = Nfa
 
-    dfa_states =.getNumberOfStates()
+    dfa_states = Dfa.getNumberOfStates()
     determinism_check = Dfa.isDeterministic()
     println("Translating to DFA, we see it now has: " + dfa_states.toString() + " states")
     println("Is this this DFA deterministic now?" + determinism_check.toString())
 
-// Optional mimimization
-    Nfa.minimize()
+// Optional mimimization with default to hopcraft algorythm
+    dk.brics.automaton.MinimizationOperations.minimizeHopcroft(Dfa)
+    val minDFA = Dfa
     println("The new minimal DFA has: " + dfa_states.toString() + " states")
 
-    return Nfa
     
   }
   /**
@@ -58,7 +61,14 @@ object Problem_1 extends App{
 
   println(Regex_to_NFA_to_DFA("(((aS?))|(O((aS?))C((U|:)(((aS?))|O((aS?)+)C))*)|(((aS?))((U|:)(((aS?))|O((aS?))C))*))+"))
 */
-  println(Regex_to_NFA_to_DFA("e|OeC|(eU(((aS?)+)|(O((aS?)+)C((U|:)(((aS?)+)|O((aS?)+)C))*)|(((aS?)+)((U|:)(((aS?)+)|O((aS?)+)C))*)))|(OeCU(((aS?)+)|(O((aS?)+)C((U|:)(((aS?)+)|O((aS?)+)C))*)|(((aS?)+)((U|:)(((aS?)+)|O((aS?)+)C))*)))|(((aS?)+)|(O((aS?)+)C((U|:)(((aS?)+)|O((aS?)+)C))*)|(((aS?)+)((U|:)(((aS?)+)|O((aS?)+)C))*))"))
+  //k = 1
+  println(problem_3.Compare("e|OeC|(eU(((aS?)+)|(O((aS?)+)C((U|:)(((aS?)+)|O((aS?)+)C))*)|(((aS?)+)((U|:)(((aS?)+)|O((aS?)+)C))*)))|(OeCU(((aS?)+)|(O((aS?)+)C((U|:)(((aS?)+)|O((aS?)+)C))*)|(((aS?)+)((U|:)(((aS?)+)|O((aS?)+)C))*)))|(((aS?)+)|(O((aS?)+)C((U|:)(((aS?)+)|O((aS?)+)C))*)|(((aS?)+)((U|:)(((aS?)+)|O((aS?)+)C))*))"))
+  println(problem_3.Compare("(aS?)|(O((aS?))C((U|:)(((aS?))|O((aS?))C))*)|(((aS?))((U|:)(((aS?))|O((aS?))C))*)"))
+
+  //k = 2
+  //k = 3
+  //k = 4
+  //k = 5
 
   //def Problem_2()
 }
@@ -106,8 +116,8 @@ https://www.debuggex.com/#cheatsheet
 
 one level
 (aS?)|(O((aS?))C((U|:)(((aS?))|O((aS?))C))*)|(((aS?))((U|:)(((aS?))|O((aS?))C))*)
-two level
-(aS?)   |   (O((aS?))C((U|:)(((aS?))|O((aS?))C))*)   |   ((aS?)((U|:)(((aS?))|O((aS?))C))*)    |  
+two level     (aS)       U:      (a) or a *               (aS)       U:      (a) or a *                   
+(aS?)   |   (O((aS?))C((U|:)(((aS?))|O((aS?))C))*)   |   ((aS?)((U|:)(((aS?))|O((aS?))C))*)    |  (O((aS?))C((U|:)(((aS?))|O((aS?))C))*)
 OaSC
 OaC:OaCUaS
 a:OaC

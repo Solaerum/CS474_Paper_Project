@@ -17,7 +17,7 @@ object problem_3{
 
         val regex_to_process = new dk.brics.automaton.RegExp(regexIn)
         val outString = new mutable.StringBuilder("")
-        val Nfa = regex_to_process.toAutomaton()
+        val Nfa = regex_to_process.toAutomaton(false)
         
         //Adds length of regex
         outString ++= "Your regex has size: " + regexIn.length().toString() + "\n"
