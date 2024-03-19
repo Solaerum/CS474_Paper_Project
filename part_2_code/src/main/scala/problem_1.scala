@@ -61,6 +61,9 @@ object Problem_1 extends App{
 
   println(Regex_to_NFA_to_DFA("(((aS?))|(O((aS?))C((U|:)(((aS?))|O((aS?)+)C))*)|(((aS?))((U|:)(((aS?))|O((aS?))C))*))+"))
 */
+  /**
+    * Test cases for different 'K' levels deep of nesting parens (found in problem 2)
+    */
   //k = 1
   println(problem_3.Compare("(aS?)|(O((aS?))C((U|:)(((aS?))|O((aS?))C))*)|(((aS?))((U|:)(((aS?))|O((aS?))C))*)"))
   //k = 2
@@ -72,14 +75,12 @@ object Problem_1 extends App{
   //k = 5
   println(problem_3.Compare("(aS?)|(O((aS?))C((U|:)(((aS?))|O((aS?))C)|OO(aS?)CC|OOO(aS?)CCC|OOOO(aS?)CCCC|OOOOO(aS?)CCCCC)*)|((aS?)((U|:)(((aS?))|O((aS?))C)|OO(aS?)CC|OOO(aS?)CCC|OOOO(aS?)CCCC|OOOOO(aS?)CCCCC)*)|(OO(aS?)CC((U|:)((aS?)|O(aS?)C)|OO(aS?)CC|OOO(aS?)CCC|OOOO(aS?)CCCC|OOOOO(aS?)CCCCC)*)|(OOO(aS?)CCC((U|:)((aS?)|O(aS?)C)|OO(aS?)CC|OOO(aS?)CCC|OOOO(aS?)CCCC|OOOOO(aS?)CCCCC)*)|(OOOO(aS?)CCCC((U|:)((aS?)|O(aS?)C)|OO(aS?)CC|OOO(aS?)CCC|OOOO(aS?)CCCC|OOOOO(aS?)CCCCC)*)|(OOOO(aS?)CCCC((U|:)((aS?)|O(aS?)C)|OO(aS?)CC|OOO(aS?)CCC|OOOO(aS?)CCCC|OOOOO(aS?)CCCCC)*)"))
 
-  //k = 2
-  //k = 3
-  //k = 4
-  //k = 5
 
-  //def Problem_2()
+  
 }
-/*
+
+
+/* Left in for history, unused
 A --> ((a|b)+S?)*
 
 A(for a and b)--> (((a|b)S?)((U|:)((a|b)S?))*) has one extra outside set of parens 
