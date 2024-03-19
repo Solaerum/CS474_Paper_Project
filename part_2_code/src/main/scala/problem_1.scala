@@ -64,6 +64,7 @@ object Problem_1 extends App{
   //k = 1
   println(problem_3.Compare("e|OeC|(eU(((aS?)+)|(O((aS?)+)C((U|:)(((aS?)+)|O((aS?)+)C))*)|(((aS?)+)((U|:)(((aS?)+)|O((aS?)+)C))*)))|(OeCU(((aS?)+)|(O((aS?)+)C((U|:)(((aS?)+)|O((aS?)+)C))*)|(((aS?)+)((U|:)(((aS?)+)|O((aS?)+)C))*)))|(((aS?)+)|(O((aS?)+)C((U|:)(((aS?)+)|O((aS?)+)C))*)|(((aS?)+)((U|:)(((aS?)+)|O((aS?)+)C))*))"))
   println(problem_3.Compare("(aS?)|(O((aS?))C((U|:)(((aS?))|O((aS?))C))*)|(((aS?))((U|:)(((aS?))|O((aS?))C))*)"))
+  println(problem_3.Compare("(aS?)|(O((aS?))C((U|:)(((aS?))|O((aS?))C)| OO(aS?)CC )*)|((aS?)((U|:)(((aS?))|O((aS?))C)| OO(aS?)CC )*)|(OO(aS?)CC((U|:)((aS?)|O(aS?)C)|OO(aS?)CC )*)"))
 
   //k = 2
   //k = 3
@@ -114,12 +115,11 @@ https://www.debuggex.com/#cheatsheet
 
 
 
-one level
+one level (without e)
 (aS?)|(O((aS?))C((U|:)(((aS?))|O((aS?))C))*)|(((aS?))((U|:)(((aS?))|O((aS?))C))*)
-two level     (aS)       U:      (a) or a *               (aS)       U:      (a) or a *                   
-(aS?)   |   (O((aS?))C((U|:)(((aS?))|O((aS?))C))*)   |   ((aS?)((U|:)(((aS?))|O((aS?))C))*)    |  (O((aS?))C((U|:)(((aS?))|O((aS?))C))*)
-OaSC
-OaC:OaCUaS
-a:OaC
+two level(withoute)     (aS)       U:      (a) or a *               (aS)       U:      (a) or a *             (O(aS?)C( (U|:)( (aS?)|O(aS?)C) | )* )        
+(aS?)   |   (O((aS?))C((U|:)(((aS?))|O((aS?))C)| OO(aS?)CC )*)   |   ((aS?)((U|:)(((aS?))|O((aS?))C)| OO(aS?)CC )*)    |  (OO(aS?)CC( (U|:)( (aS?)|O(aS?)C) | OO(aS?)CC )* )
+(aS?)|(O((aS?))C((U|:)(((aS?))|O((aS?))C)| OO(aS?)CC )*)|((aS?)((U|:)(((aS?))|O((aS?))C)| OO(aS?)CC )*)|(OO(aS?)CC((U|:)((aS?)|O(aS?)C)|OO(aS?)CC )*)
+
 
 */
